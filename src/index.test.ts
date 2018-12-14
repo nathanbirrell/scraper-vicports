@@ -1,4 +1,6 @@
-const fetch = require('./index')
+import fetch from './index'
+
+// FIXME: tests are failing at the moment - seems to be a typescript compilation issue, or a puppeteer in test env issue ?
 
 jest.setTimeout(9000)
 
@@ -6,7 +8,10 @@ jest.setTimeout(9000)
 
 it('can fetch', async () => {
   const data = await fetch()
+
+  // @ts-ignore
   expect(data.locationName).toEqual('Point Nepean')
 
+  // @ts-ignore
   expect(typeof data.swellHeightMin).toEqual('number')
 })

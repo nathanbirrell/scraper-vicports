@@ -1,13 +1,42 @@
 {
   "name": "scraper-vicports",
   "scripts": {
-    "test": "jest src/*.test.js"
+    "tsc": "tsc",
+    "run": "npm run tsc; node ./run.js",
+    "test": "jest"
+  },
+  "jest": {
+    "collectCoverage": true,
+    "coverageReporters": [
+      "text"
+    ],
+    "moduleFileExtensions": [
+      "ts",
+      "js",
+      "json"
+    ],
+    "transform": {
+      "^.+\\.(ts)$": "ts-jest"
+    },
+    "globals": {
+      "ts-jest": {
+        "tsConfig": "tsconfig.json"
+      }
+    },
+    "testMatch": [
+      "<rootDir>/src/**/?(*.)(spec|test).(j|t)s"
+    ]
   },
   "dependencies": {
     "cheerio": "^1.0.0-rc.2",
-    "puppeteer": "^1.11.0"
+    "puppeteer": "^1.11.0",
+    "typescript": "^3.2.2"
   },
   "devDependencies": {
-    "jest": "^23.6.0"
+    "@types/cheerio": "^0.22.10",
+    "@types/jest": "^23.3.10",
+    "@types/puppeteer": "^1.11.1",
+    "jest": "^23.6.0",
+    "ts-jest": "^23.10.5"
   }
 }
